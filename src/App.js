@@ -1,25 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import Greeting from './Greeting';
+import LoginControl from './LoginControl';
+
+const messages = ['React', 'React-DOM', 'Components']
 
 function App() {
+
+  const Mailbox = (props) => {
+    const unreadMessages = props.unreadMessages
+    return (
+      <div>
+        <h1>Hello</h1>
+        {unreadMessages.length > 0 ? <h2>You have {unreadMessages.length} unreadMessages. 
+        </h2> : <h2>You do not have any unread messages</h2>} 
+      </div>
+    )
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Mailbox unreadMessages = {messages} />
+  )
 }
 
 export default App;
+
+//alternative code
+{/* <h1>Hello</h1>
+        {unreadMessages.length > 0 && <h2>You have {unreadMessages.length} unreadMessages. 
+        </h2>}  */}
